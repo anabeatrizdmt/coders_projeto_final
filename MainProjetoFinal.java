@@ -9,7 +9,7 @@ public class MainProjetoFinal { // Já me desculpo por não ter conseguido refat
 //pedir que o usuário digite a quantidade de temperaturas a serem transformadas.
 
         boolean quantidadeTemperaturasValida = false;
-        Integer quantidadeTemperaturas = 0;
+        int quantidadeTemperaturas = 0;
         while (!quantidadeTemperaturasValida || quantidadeTemperaturas<=0){
             try {
                 Scanner scanner = new Scanner(System.in);
@@ -56,7 +56,7 @@ public class MainProjetoFinal { // Já me desculpo por não ter conseguido refat
 //pedir que o usuário digite a quantidade de temperaturas a serem transformadas. convertida
 
         boolean unidadeFinalValida = false;
-        Integer unidadeFinal = 0;
+        int unidadeFinal = 0;
         while (!unidadeFinalValida){
             try {
                 Scanner scanner = new Scanner(System.in);
@@ -113,8 +113,8 @@ public class MainProjetoFinal { // Já me desculpo por não ter conseguido refat
             }
         }
 
-        Double somaTempIniciais = 0.0;
-        Double somaTempFinais = 0.0;
+        double somaTempIniciais = 0.0;
+        double somaTempFinais = 0.0;
 
         for (double valores : temperaturas) {
             somaTempIniciais += valores;
@@ -124,8 +124,8 @@ public class MainProjetoFinal { // Já me desculpo por não ter conseguido refat
             somaTempFinais += valores;
         }
 
-        Double mediaTempIniciais = somaTempIniciais/temperaturas.length;
-        Double mediaTempFinais = somaTempFinais/temperaturasconvertidas.length;
+        double mediaTempIniciais = somaTempIniciais/temperaturas.length;
+        double mediaTempFinais = somaTempFinais/temperaturasconvertidas.length;
 
         System.out.println("\nA média das temperaturas iniciais é: " + mediaTempIniciais);
         System.out.println("A média das temperaturas convertidas é: " + mediaTempFinais);
@@ -133,37 +133,30 @@ public class MainProjetoFinal { // Já me desculpo por não ter conseguido refat
     }
 
     public static Double transformaTemperaturaIguas(Double temperatura) {
-        Double temperaturafinal = temperatura;
-        return temperaturafinal;
+        return temperatura;
     }
 
     public static Double transformaTemperaturaCelsiusParaKelvin(Double temperatura) {
-        Double temperaturafinal = temperatura + 273;
-        return temperaturafinal;
+        return temperatura + 273.15;
     }
 
     public static Double transformaTemperaturaKelvinParaCelsius(Double temperatura) {
-        Double temperaturafinal = temperatura - 273;
-        return temperaturafinal;
+        return temperatura - 273.15;
     }
 
     public static Double transformaTemperaturaCelsiusParaFahrenheit(Double temperatura) {
-        Double temperaturafinal = (temperatura * ( 9d / 5d )) + 32;
-        return temperaturafinal;
+        return (temperatura * ( 9d / 5d )) + 32;
     }
 
     public static Double transformaTemperaturaFahrenheitParaCelsius(Double temperatura) {
-        Double temperaturafinal = (temperatura - 32) / ( 9d / 5d );
-        return temperaturafinal;
+        return (temperatura - 32) / ( 9d / 5d );
     }
 
     public static Double transformaTemperaturaFahrenheitParaKelvin(Double temperatura) {
-        Double temperaturafinal = ((temperatura - 32) * ( 9d / 5d )) + 273;
-        return temperaturafinal;
+        return ((temperatura - 32) * ( 9d / 5d )) + 273;
     }
 
     public static Double transformaTemperaturaKelvinParaFahrenheit(Double temperatura) {
-        Double temperaturafinal = ((temperatura - 273) * ( 9d / 5d )) + 32;
-        return temperaturafinal;
+        return ((temperatura - 273) * ( 9d / 5d )) + 32;
     }
 }
