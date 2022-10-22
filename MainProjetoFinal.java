@@ -2,41 +2,13 @@ package coders_projeto_final;
 
 import java.util.Scanner;
 
-public class MainProjetoFinal { // Já me desculpo por não ter conseguido refatorar muito bem :(
+public class MainProjetoFinal { // Já me desculpo por não ter conseguido refatorar até o final :(
 
     public static void main(String[] args) {
 
-//pedir que o usuário digite a quantidade de temperaturas a serem transformadas.
+        int quantidadeTemperaturas = pedeQuantidadeTemperaturas();//pedir que o usuário digite a quantidade de temperaturas a serem transformadas.
 
-        boolean quantidadeTemperaturasValida = false;
-        int quantidadeTemperaturas = 0;
-        while (!quantidadeTemperaturasValida || quantidadeTemperaturas<=0){
-            try {
-                Scanner scanner = new Scanner(System.in);
-                System.out.println("Digite quantas temperaturas você quer transformar, sendo um número inteiro e maior que zero:");
-                quantidadeTemperaturas = scanner.nextInt();
-                quantidadeTemperaturasValida = true;
-            } catch (Exception e) {
-                System.out.println("Digite uma quantidade válida sendo um número inteiro e maior que zero");
-            }
-        }
-
-//pedir as temperaturas a serem transformadas.
-
-        Double[] temperaturas = new Double[quantidadeTemperaturas];
-        for (int i = 0; i < temperaturas.length; i++) {
-            boolean temperaturasValidas = false;
-            while (!temperaturasValidas){
-                try {
-                    Scanner scanner = new Scanner(System.in);
-                    System.out.println("Digite a temperatura número " + (i+1));
-                    temperaturas[i] = scanner.nextDouble();
-                    temperaturasValidas = true;
-                } catch (Exception e) {
-                    System.out.println("Digite uma temperatura válida ");
-                }
-            }
-        }
+        Double[] temperaturas = pedeTemperaturas(quantidadeTemperaturas); //pedir as temperaturas a serem transformadas.
 
 //pedir que o usuário digite a quantidade de temperaturas a serem transformadas. Origem
 
@@ -130,6 +102,40 @@ public class MainProjetoFinal { // Já me desculpo por não ter conseguido refat
         System.out.println("\nA média das temperaturas iniciais é: " + mediaTempIniciais);
         System.out.println("A média das temperaturas convertidas é: " + mediaTempFinais);
 
+    }
+
+    public static int pedeQuantidadeTemperaturas() {
+        boolean quantidadeTemperaturasValida = false;
+        int quantidadeTemperaturas = 0;
+        while (!quantidadeTemperaturasValida || quantidadeTemperaturas<=0){
+            try {
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Digite quantas temperaturas você quer transformar, sendo um número inteiro e maior que zero:");
+                quantidadeTemperaturas = scanner.nextInt();
+                quantidadeTemperaturasValida = true;
+            } catch (Exception e) {
+                System.out.println("Digite uma quantidade válida sendo um número inteiro e maior que zero");
+            }
+        }
+        return quantidadeTemperaturas;
+    }
+
+    public static Double[] pedeTemperaturas(int quantidadeTemperaturas) {
+        Double[] temperaturas = new Double[quantidadeTemperaturas];
+        for (int i = 0; i < temperaturas.length; i++) {
+            boolean temperaturasValidas = false;
+            while (!temperaturasValidas){
+                try {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Digite a temperatura número " + (i+1));
+                    temperaturas[i] = scanner.nextDouble();
+                    temperaturasValidas = true;
+                } catch (Exception e) {
+                    System.out.println("Digite uma temperatura válida ");
+                }
+            }
+        }
+        return temperaturas;
     }
 
     public static Double transformaTemperaturaIguas(Double temperatura) {
