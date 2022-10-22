@@ -1,6 +1,8 @@
+package coders_projeto_final;
+
 import java.util.Scanner;
 
-public class MainProjetoFinal { // Já me desculpo por não ter tido tempo de refatorar :(
+public class MainProjetoFinal { // Já me desculpo por não ter conseguido refatorar muito bem :(
 
     public static void main(String[] args) {
 
@@ -23,9 +25,17 @@ public class MainProjetoFinal { // Já me desculpo por não ter tido tempo de re
 
         Double[] temperaturas = new Double[quantidadeTemperaturas];
         for (int i = 0; i < temperaturas.length; i++) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Digite a temperatura número " + (i+1));
-            temperaturas[i] = scanner.nextDouble();
+            boolean temperaturasValidas = false;
+            while (!temperaturasValidas){
+                try {
+                    Scanner scanner = new Scanner(System.in);
+                    System.out.println("Digite a temperatura número " + (i+1));
+                    temperaturas[i] = scanner.nextDouble();
+                    temperaturasValidas = true;
+                } catch (Exception e) {
+                    System.out.println("Digite uma temperatura válida ");
+                }
+            }
         }
 
 //pedir que o usuário digite a quantidade de temperaturas a serem transformadas. Origem
